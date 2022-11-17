@@ -1,6 +1,10 @@
 #include <iostream>
 #include <iomanip>
 
+using std::cout;
+using std::endl;
+using std::setprecision;
+
 double pow(double x, size_t n)
 {
 	if (n == 0)
@@ -35,10 +39,10 @@ int main(int argc, char const *argv[])
 	size_t size = sizeof(test_cases) / sizeof(test_cases[0]);
 	for (size_t i = 0; i < size; i++)
 	{
-		std::cout << "Actual function: f(" << x << ") = " << std::setprecision(8) << geo_fn(x) << std::endl;
-		std::cout << "Estimation: s(" << x << "," << test_cases[i] << ") = " << std::setprecision(8) << geo_sum(x, test_cases[i]) << std::endl;
-		std::cout << "Error: " << std::setprecision(3) << (geo_fn(x) - geo_sum(x, test_cases[i])) / geo_fn(x) * 100 << "%" << std::endl;
-		std::cout << "----------------------------------------------------------" << std::endl;
+		cout << "Actual function: f(" << x << ") = " << setprecision(8) << geo_fn(x) << endl;
+		cout << "Estimation: s(" << x << "," << test_cases[i] << ") = " << setprecision(8) << geo_sum(x, test_cases[i]) << endl;
+		cout << "Error: " << setprecision(3) << (geo_fn(x) - geo_sum(x, test_cases[i])) / geo_fn(x) * 100 << "%" << endl;
+		cout << "----------------------------------------------------------" << endl;
 	}
 	return 0;
 }
